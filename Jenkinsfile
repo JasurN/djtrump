@@ -14,6 +14,7 @@ node {
             sh 'virtualenv env'
             sh '. env/bin/activate'
             sh 'env/bin/pip install -r requirements.txt'
+            sh 'pip install psycopg2-binary'
             sh 'env/bin/python manage.py test --testrunner=djtrump.tests.test_runners.NoDbTestRunner'
 
         stage 'Deploy'
